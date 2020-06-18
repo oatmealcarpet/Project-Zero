@@ -1,0 +1,10 @@
+{
+			"token": "YOUR_BOT_TOKEN_HERE",
+			
+			"prefix": "CUSTOM_PREFIX",
+			
+			"youtubeAPI": "YOUTUBE_API", 
+
+                        "geniusLyricsAPI": "GENIUS_LYRICS_API"
+	
+}
