@@ -5,3 +5,7 @@ I will not assist or support anything when it comes to modifying this Repository
 Discord Server: https://discord.gg/ZsSx8XB
 
 Invite the BOT: https://bit.ly/37EWjrS
+
+
+https://top.gg/api/widget/524873335864033290.svg
+
