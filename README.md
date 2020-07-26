@@ -6,11 +6,12 @@
 - https://discord.gg/ZsSx8XB
 
 ## Invite the BOT for the full experience with over 180+ commands!
-- https://discord.com/oauth2/authorize?client_id=524873335864033290&scope=bot&permissions=805314614
+- https://bit.ly/2NtdTWy
 
 ## Installation
 - `git clone https://github.com/Zeroo000/Project-Zero`
-- Fill up the `config.json` file
+- `cd Project-Zero`
+- Fill up `config.json` file
 - Execute `npm i`
 - `node .` to run the BOT.
 
