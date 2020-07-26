@@ -12,7 +12,7 @@
 ## Installation
 - `git clone https://github.com/Zeroo000/Project-Zero`
 - `cd Project-Zero`
-- Fill up `config.json` file
+- Fill up `config.json`
 - `npm i` to install dependencies.
 - `node .` to run the bot.
 
