@@ -4,9 +4,9 @@
 
 ## Invite Links
 
-- `Discord Server:` https://discord.gg/ZsSx8XB
+- [Discord Server](https://discord.gg/ZsSx8XB)
 
-- `BOT Invite with 200+ Commands:` https://bit.ly/2NtdTWy
+- [BOT Invite with 200+ Commands](https://discord.com/oauth2/authorize?client_id=524873335864033290&scope=bot&permissions=805314614)
 
 ## Installation
 - `git clone https://github.com/Zeroo000/Project-Zero`
