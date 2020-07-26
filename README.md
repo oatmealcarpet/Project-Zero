@@ -9,10 +9,10 @@
 - https://discord.com/oauth2/authorize?client_id=524873335864033290&scope=bot&permissions=805314614
 
 ## Installation
-- git clone https://github.com/Zeroo000/Project-Zero
-- Fill up the config.json file
-- ``npm i``
-- And `node .` to run
+- `git clone https://github.com/Zeroo000/Project-Zero`
+- Fill up the `config.json` file
+- Execute `npm i`
+- `node .` to run the BOT.
 
 
 
