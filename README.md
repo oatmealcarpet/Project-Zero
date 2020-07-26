@@ -16,8 +16,14 @@
 - `npm i` to install dependencies.
 - `node .` to run the bot.
 
+## API Keys
+- [How to get YouTube API](https://developers.google.com/youtube/v3/getting-started)
+- [Genius Lyrics API](https://genius.com/api-clients/new)
+- [NewsAPI.org](https://newsapi.org/)
 
-
+## Node.js Installation
+- [Windows](https://treehouse.github.io/installation-guides/windows/node-windows.html)
+- [Debian](https://www.digitalocean.com/community/tutorials/how-to-set-up-a-node-js-application-for-production-on-debian-9)
 
 
 
