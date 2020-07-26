@@ -2,11 +2,11 @@
 - The developer may help you but don't expect too much. You may not be helped by the BOT developer.
 - This Repo will be updated whenever the Developer feels like.
 
-## Discord Server
-- https://discord.gg/ZsSx8XB
+## Invite Links
 
-## Invite the BOT for the full experience with over 180+ commands!
-- https://bit.ly/2NtdTWy
+- `Discord Server:` https://discord.gg/ZsSx8XB
+
+- `BOT Invite with 200+ Commands:` https://bit.ly/2NtdTWy
 
 ## Installation
 - `git clone https://github.com/Zeroo000/Project-Zero`
