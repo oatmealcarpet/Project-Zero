@@ -1,10 +1,14 @@
 {
-			"token": "YOUR_BOT_TOKEN_HERE",
+			"token": "NzI0MjY4MTkxMzY2MzgxNTkw.XwCGsw.528MPemhu_7YnXw1vLh4_nweALE",
 			
-			"prefix": "CUSTOM_PREFIX",
+			"prefix": "p",
 			
-			"youtubeAPI": "YOUTUBE_API", 
+			"newsAPI": "289fb2bac6d04787930ce847ded81648",
+			
+			"tenorAPI": "OXDEUSXEZD98",
+			
+			"youtubeAPI": "AIzaSyBMMq-oa-0Z8iEsNDTzEn4nh8EuYYkVm08", 
 
-                        "geniusLyricsAPI": "GENIUS_LYRICS_API"
+   "geniusLyricsAPI": "kvb1nXx8DzKfBTONKAr1X_ZvFN70tjtEoG7c8B03ZvAqhcBynBHE5BNymsd4ECEp"
 	
 }

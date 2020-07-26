@@ -50,7 +50,7 @@ module.exports = class PlayCommand extends Command {
         return message.say('Playlist is either private or it does not exist!');
       });
       // remove the 10 if you removed the queue limit conditions below
-      const videosObj = await playlist.getVideos(10).catch(function() {
+      const videosObj = await playlist.getVideos().catch(function() {
         return message.say(
           'There was a problem getting one of the videos in the playlist!'
         );

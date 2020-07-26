@@ -1,5 +1,5 @@
 {
-  "name": "ZeroDJ",
+  "name": "Project-Zero",
   "version": "1.0.0",
   "description": "a discord music bot",
   "main": "index.js",
@@ -22,7 +22,7 @@
     "opusscript": "0.0.7",
     "setimmediate": "^1.0.5",
     "simple-youtube-api": "^5.2.1",
-    "ytdl-core": "^2.1.2"
+    "ytdl-core": "^2.1.7"
   },
   "devDependencies": {
     "@getify/eslint-plugin-proper-arrows": "^8.0.1",

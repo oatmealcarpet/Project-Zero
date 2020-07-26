@@ -41,10 +41,14 @@ module.exports = class LyricsCommand extends Command {
       );
     }
     const sentMessage = await message.channel.send(
-      '👀 Searching for lyrics 👀'
+      '\:mag: **Searching for lyrics...**'
     );
-
     // get song id
+    songName = songName.replace(/ *\([^)]*\) */g, ''); // remove stuff like (Official Video)
+    songName = songName.replace(
+      /([\u2700-\u27BF]|[\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2011-\u26FF]|\uD83E[\uDD10-\uDDFF])/g,
+      ''
+    ); // remove emojis
     var url = `https://api.genius.com/search?q=${encodeURI(songName)}`;
 
     const headers = {
@@ -53,10 +57,9 @@ module.exports = class LyricsCommand extends Command {
     try {
       var body = await fetch(url, { headers });
       var result = await body.json();
-      const songID = result.response.hits[0].result.id;
-
+      const songPath = result.response.hits[0].result.api_path;
       // get lyrics
-      url = `https://api.genius.com/songs/${songID}`;
+      url = `https://api.genius.com${songPath}`;
       body = await fetch(url, { headers });
       result = await body.json();
 
@@ -64,28 +67,34 @@ module.exports = class LyricsCommand extends Command {
 
       let lyrics = await getLyrics(song.url);
       lyrics = lyrics.replace(/(\[.+\])/g, '');
+      if (!lyrics) {
+        return message.say(
+          'No lyrics have been found for your query, please try again and be more specific.'
+        );
+      }
 
       if (lyrics.length > 4095)
-        return message.say('Lyrics are too long to be returned as embed');
+        return message.say(
+          'Lyrics are too long to be returned in a message embed'
+        );
       if (lyrics.length < 2048) {
         const lyricsEmbed = new MessageEmbed()
-          .setColor('#00724E')
+          .setColor('#347ff7')
           .setDescription(lyrics.trim());
         return sentMessage.edit('', lyricsEmbed);
       } else {
-        // lyrics.length > 2048
+        // 2048 < lyrics.length < 4096
         const firstLyricsEmbed = new MessageEmbed()
-          .setColor('#00724E')
+          .setColor('#347ff7')
           .setDescription(lyrics.slice(0, 2048));
         const secondLyricsEmbed = new MessageEmbed()
-          .setColor('#00724E')
+          .setColor('#347ff7')
           .setDescription(lyrics.slice(2048, lyrics.length));
         sentMessage.edit('', firstLyricsEmbed);
         message.channel.send(secondLyricsEmbed);
         return;
       }
     } catch (e) {
-      console.error(e);
       return sentMessage.edit(
         'Something when wrong, please try again or be more specific'
       );

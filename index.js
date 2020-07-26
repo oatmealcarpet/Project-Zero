@@ -48,7 +48,7 @@ client.registry
 
 client.once('ready', () => {
   console.log('Ready!');
-  client.user.setActivity(`Music | ${prefix}help`, {
+  client.user.setActivity(`Music | ${prefix}help | ${client.registry.commands.size}`, {
     type: 'LISTENING'
   });
   

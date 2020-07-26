@@ -24,7 +24,7 @@ run(msg, args) {
            .addField('Server Count', `${client.guilds.cache.size}`)
            .addField('Made by: ', 'Zero`#2726')
            .addField('Created: ', 'May, 2020')
-           .addField('BOT Prefix:', '!')
+           .addField('BOT Prefix:', 'p')
     return msg.say(embed);
     
   }
