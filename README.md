@@ -11,8 +11,8 @@
 ## Installation
 - git clone https://github.com/Zeroo000/Project-Zero
 - Fill up the config.json file
-- npm i
-- And "node ." to run
+- ``npm i``
+- And `node .` to run
 
 
 
