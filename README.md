@@ -29,7 +29,6 @@
 - [Windows](https://treehouse.github.io/installation-guides/windows/node-windows.html)
 - [Debian](https://www.digitalocean.com/community/tutorials/how-to-set-up-a-node-js-application-for-production-on-debian-9)
 
-## Commands
 ### Commands
 
 - Music
@@ -51,9 +50,15 @@
 | music-trivia | Engage in a music trivia with your friends. You can add more songs to the trivia pool in resources/music/musictrivia.json | music-trivia          |
 | loop         | Loop the currently playing song                                                                                           | loop 5                 |
 | lyrics       | Get lyrics of any song or the lyrics of the currently playing song                                                        | lyrics song-name      |
-| now-playing       | Display the current playing song with a playback bar                                                        | now-playing       |
+| now-playing       | Display the current playing song with a playback bar                                                                 | now-playing       |
 
+- Moderation
 
-
-
-
+| Command       | Description                                                                                                               | Usage                  |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------- | ---------------------- |
+| addrole       | Adds a specific role on the user inputed.                                                                                 | addrole @Zero'#2726 @Member
+| ban           | Bans a mentioned user.                                                                                                    | ban @Zero'#2726 Bad |
+| delmsg        | Deletes up to 99 messages.                                                                                                | delmsg 99             |
+| kick          | Kicks a mentioned user.                                                                                                   | kick @Zero'#2726 Bad              |
+| removerole    | Removes a role from mentioned user.                                                                                       | removerole @Zero'#2726 @Member                 |
+| say           | Repeats what you typed in the chat.                                                                                       | say I'm beautiful.              |
