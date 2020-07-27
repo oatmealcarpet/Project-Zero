@@ -62,3 +62,24 @@
 | kick          | Kicks a mentioned user.                                                                                                   | kick @Zero'#2726 Bad              |
 | removerole    | Removes a role from mentioned user.                                                                                       | removerole @Zero'#2726 @Member                 |
 | say           | Repeats what you typed in the chat.                                                                                       | say I'm beautiful.              |
+
+- Others
+
+| Command       | Description                                                                                                               | Usage                  |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------- | ---------------------- |
+| 8ball         | 8 Ball answers.                                                                                                           | 8ball Am I a beautiful butterfly?
+| animegif      | Gets an anime gif.                                                                                                        | animegif jojo          |
+| avatar        | Gets the avatar of mentioned user.                                                                                        | avatar @Zero'#2726     |
+| botinfo       | Shows BOT information.                                                                                                    | botinfo                |
+| chucknorris   | Satirical Fact about Chuck Norris                                                                                         | chucknorris            |
+| fortune       | Fortune Cookie.                                                                                                           | fortune                |
+| gif           | Sends a gif related to input.                                                                                             | gif gintama            |
+| gintama       | Gintama Gif.                                                                                                              | gintama                |
+| insult        | Insult someone.                                                                                                           | insult @Zero'#2726     |
+| invite        | Important Invite Links.                                                                                                   | invite                 |
+| jojo          | Jojo gifs.                                                                                                                | jojo                   |
+| membercount   | Server membercount.                                                                                                       | membercount            |
+| subreddit     | Browse a top 10 post from inputed subreddit.                                                                              | subreddit PewdiepieSubmissions |
+| uptime        | BOT Uptime.                                                                                                               | uptime                 |
+
+
