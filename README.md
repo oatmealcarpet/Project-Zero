@@ -4,7 +4,8 @@
 ## Project Zero
 
 [![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://bit.ly/2NtdTWy)
-[![Discord](https://discordapp.com/api/guilds/252317073814978561/embed.png)](https://discord.gg/ZsSx8XB)
+[![Discord](https://img.shields.io/discord/691741711814098994?color=7289da&label=discord&logo=discord&logoColor=white&style=for-the-badge)]
+
 
 
 - Self-Hosting questions for this bot will not be assisted by the bot developer.
