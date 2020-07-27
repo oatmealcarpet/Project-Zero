@@ -62,6 +62,7 @@
 | kick          | Kicks a mentioned user.                                                                                                   | kick @Zero'#2726 Bad              |
 | removerole    | Removes a role from mentioned user.                                                                                       | removerole @Zero'#2726 @Member                 |
 | say           | Repeats what you typed in the chat.                                                                                       | say I'm beautiful.              |
+| strawpoll     | Generates a Strawpoll with the options you provide.                                                                       | strawpoll [Procedures will be shown] |
 
 - Others
 
