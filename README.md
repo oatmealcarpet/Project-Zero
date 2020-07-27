@@ -31,6 +31,9 @@
 
 ### Commands
 
+- BOT Prefix
+ - `p`
+
 - Music
 
 | Command       | Description                                                                                                               | Usage                  |
