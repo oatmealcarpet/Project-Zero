@@ -36,6 +36,7 @@ client.registry
   .registerGroups([
     ['music', 'Music Command Group'],
     ['moderation', 'Server Moderation'],
+    ['auto', 'Auto Reply']
     ['others', 'Other Commands']
   ])
   .registerDefaultGroups()
