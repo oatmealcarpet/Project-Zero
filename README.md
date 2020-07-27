@@ -1,7 +1,11 @@
+<img width="150" height="150" align="left" style="float: left; margin: 0 10px 0 0;" alt="Project Zero" src="https://i.postimg.cc/ZYrq5hnd/20200701-000733.png">  
+
+
 ## Project Zero
 
 [![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://bit.ly/2NtdTWy)
-[![forthebadge](https://forthebadge.com/images/badges/built-by-developers.svg)](https://discord.gg/ZsSx8XB)
+[![Discord](https://discordapp.com/api/guilds/252317073814978561/embed.png)](https://discord.gg/ZsSx8XB)
+
 
 - Self-Hosting questions for this bot will not be assisted by the bot developer.
 - Code Errors, Bugs may be assisted by the developer but not prioritized.
