@@ -6,7 +6,7 @@
 [![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://bit.ly/2NtdTWy)
 [![Language](https://img.shields.io/badge/Language-Node.js-red?style=for-the-badge&logo=node.js)](https://nodejs.org/en/about/)
 [![Discord](https://img.shields.io/discord/691741711814098994?color=7289da&label=discord&logo=discord&logoColor=white&style=for-the-badge)](https://discord.gg/ZsSx8XB)
-
+![GitHub Repo Size](https://img.shields.io/github/repo-size/Zeroo000/Project-Zero)
 
 
 
