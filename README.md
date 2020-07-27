@@ -4,7 +4,8 @@
 ## Project Zero
 
 [![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://bit.ly/2NtdTWy)
-[![Discord](https://img.shields.io/discord/691741711814098994?color=7289da&label=discord&logo=discord&logoColor=white&style=for-the-badge)]
+[![Discord](https://img.shields.io/discord/691741711814098994?color=7289da&label=discord&logo=discord&logoColor=white&style=for-the-badge)](https://discord.gg/ZsSx8XB)
+
 
 
 
