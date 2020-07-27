@@ -1,6 +1,7 @@
 ## Project Zero
 
 [![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://bit.ly/2NtdTWy)
+[![forthebadge](https://forthebadge.com/images/badges/built-by-developers.svg)](https://discord.gg/ZsSx8XB)
 
 - Self-Hosting questions for this bot will not be assisted by the bot developer.
 - Code Errors, Bugs may be assisted by the developer but not prioritized.
