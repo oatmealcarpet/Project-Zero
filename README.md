@@ -21,13 +21,12 @@
 - [BOT Invite with 200+ Commands](https://discord.com/oauth2/authorize?client_id=524873335864033290&scope=bot&permissions=805314614)
 
 ## Installation
-```
-• git clone https://github.com/Zeroo000/Project-Zero
-• cd Project-Zero
-• Fill up config.json
-• npm i to install dependencies.
-• node . to run the bot.
-```
+- ```git clone https://github.com/Zeroo000/Project-Zero```
+- ```cd Project-Zero```
+- Fill up ```config.json```
+- ```npm i``` to install dependencies.
+- ```node .``` to run the bot.
+
 
 ## API Keys
 - [How to get YouTube API](https://developers.google.com/youtube/v3/getting-started)
