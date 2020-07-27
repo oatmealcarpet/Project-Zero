@@ -1,14 +1,13 @@
 {
-			"token": "NzI0MjY4MTkxMzY2MzgxNTkw.XwCGsw.528MPemhu_7YnXw1vLh4_nweALE",
+			"token": "BOT_TOKEN",
 			
 			"prefix": "p",
 			
-			"newsAPI": "289fb2bac6d04787930ce847ded81648",
+			"newsAPI": "NEWSAPI.ORG",
 			
-			"tenorAPI": "OXDEUSXEZD98",
+			"tenorAPI": "TENOR_API",
 			
-			"youtubeAPI": "AIzaSyBMMq-oa-0Z8iEsNDTzEn4nh8EuYYkVm08", 
+			"youtubeAPI": "YOUTUBE_API", 
 
-   "geniusLyricsAPI": "kvb1nXx8DzKfBTONKAr1X_ZvFN70tjtEoG7c8B03ZvAqhcBynBHE5BNymsd4ECEp"
-	
+   "geniusLyricsAPI": "GENIUS_API"
 }
