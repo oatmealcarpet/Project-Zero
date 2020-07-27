@@ -31,8 +31,7 @@
 
 ### Commands
 
-- BOT Prefix
- - `p`
+- BOT Prefix: `p`
 
 - Music
 
