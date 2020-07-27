@@ -20,6 +20,7 @@
 - [How to get YouTube API](https://developers.google.com/youtube/v3/getting-started)
 - [Genius Lyrics API](https://genius.com/api-clients/new)
 - [NewsAPI.org](https://newsapi.org/)
+- [Tenor API](https://tenor.com/developer/keyregistration)
 
 ## Node.js Installation
 - [Windows](https://treehouse.github.io/installation-guides/windows/node-windows.html)
