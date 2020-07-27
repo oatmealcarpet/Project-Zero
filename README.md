@@ -22,7 +22,7 @@
 
 ## Installation
 ```
-• git clone https://github.com/Zeroo000/Project-Zero`
+• git clone https://github.com/Zeroo000/Project-Zero
 • cd Project-Zero
 • Fill up config.json
 • npm i to install dependencies.
