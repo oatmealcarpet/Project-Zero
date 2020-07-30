@@ -14,7 +14,7 @@
 - Code Errors, Bugs may be assisted by the developer but not prioritized.
 - This bot repository will be updated whenever the developer feels like updating it.
 - This repository only has few commands than the main repository which has over 200+ commands. Inviting the BOT will be much appreciated.
-- Begging/Asking for the main bot's source code is not be possible.
+- Begging/Asking for the main bot's source code is not possible.
 
 ## Invite Links
 - [Discord Server](https://discord.gg/ZsSx8XB)
