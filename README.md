@@ -8,13 +8,27 @@
 [![Discord](https://img.shields.io/discord/691741711814098994?color=7289da&label=discord&logo=discord&logoColor=white&style=for-the-badge)](https://discord.gg/ZsSx8XB)
 [![Repo Size](https://img.shields.io/github/languages/code-size/Zeroo000/Project-Zero?style=for-the-badge&label=SIZE&logo=github)](/../../)
 
-
-
 - Self-Hosting questions for this bot will not be assisted by the bot developer.
 - Code Errors, Bugs may be assisted by the developer but not prioritized.
 - This bot repository will be updated whenever the developer feels like updating it.
 - This repository only has few commands than the main repository which has over 200+ commands. Inviting the BOT will be much appreciated.
 - Begging/Asking for the main bot's source code is not possible.
+
+## Note
+- Note that the discord.js-commando framework already has a built-in commands and it is the following:
+     - help
+     - eval
+     - ping
+     - prefix
+- You can enable/disable the built-in commands by going into `index.js` at `line: 46`.
+- Disabling the built-in commands you have to put the following code:
+     - `help: false,`
+     - `eval: false,`
+     - `ping: false,`
+     - `prefix: false,`
+- If you don't see the codes above that means it is currently enabled.
+
+
 
 ## Invite Links
 - [Discord Server](https://discord.gg/ZsSx8XB)
