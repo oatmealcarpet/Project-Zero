@@ -14,20 +14,6 @@
 - This repository only has few commands than the main repository which has over 200+ commands. Inviting the BOT will be much appreciated.
 - Begging/Asking for the main bot's source code is not possible.
 
-## Note
-- Note that the discord.js-commando framework already has a built-in commands and it is the following:
-     - help
-     - eval
-     - ping
-     - prefix
-- You can enable/disable the built-in commands by going into `index.js` at `line: 46`.
-- Disabling the built-in commands you have to put the following code:
-     - `help: false,`
-     - `eval: false,`
-     - `ping: false,`
-     - `prefix: false,`
-- If you don't see the codes above that means it is currently enabled.
-- Enabling the Unknown Command response you have to delete the `unknownCommand: false,` on `index.js` at `line: 47`.
 
 
 ## Invite Links
@@ -108,4 +94,18 @@
 | subreddit     | Browse a top 10 post from inputed subreddit.                                                                              | subreddit PewdiepieSubmissions |
 | uptime        | BOT Uptime.                                                                                                               | uptime                 |
 
+## Note
+- Note that the discord.js-commando framework already has a built-in commands and it is the following:
+     - help
+     - eval
+     - ping
+     - prefix
+- You can enable/disable the built-in commands by going into `index.js` at `line: 46`.
+- Disabling the built-in commands you have to put the following code:
+     - `help: false,`
+     - `eval: false,`
+     - `ping: false,`
+     - `prefix: false,`
+- If you don't see the codes above that means it is currently enabled.
+- Enabling the Unknown Command response you have to delete the `unknownCommand: false,` on `index.js` at `line: 47`.
 
