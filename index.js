@@ -44,6 +44,7 @@ client.registry
   .registerDefaultGroups()
   .registerDefaultCommands({
     eval: false,
+    unknowmCommand: false,
     commandState: false
   })
   .registerCommandsIn(path.join(__dirname, 'commands'));
@@ -55,10 +56,17 @@ client.once('ready', () => {
   });
   
 });
+
 		client.on('guildMemberAdd', member => {
   const channel = member.guild.channels.cache.find(ch => ch.name === 'joins-and-leaves'); 
   if (!channel) return;
-  channel.send(`Welcome ${member}!`);
+  channel.send(`Welcome ${member} | ${member.user.tag}!`);
+});
+
+client.on('guildMemberRemove', member => {
+  const channel = member.guild.channels.cache.find(ch => ch.name === 'joins-and-leaves'); 
+  if (!channel) return;
+  channel.send(`${member} | ${member.user.tag} has left the server.`);
 });
 
 client.login(token);
