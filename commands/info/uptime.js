@@ -7,7 +7,7 @@ module.exports = class UptimeCommand extends Command {
       name: 'uptime',
       aliases: ['alive', 'up'],
       memberName: 'uptime',
-      group: 'others',
+      group: 'info',
       description: "Replies with the bot's total uptime."
     });
   }

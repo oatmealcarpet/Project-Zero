@@ -34,15 +34,16 @@ const client = new CommandoClient({
 client.registry
   .registerDefaultTypes()
   .registerGroups([
-    ['music', 'Music Command Group'],
+    ['music', 'Music Commands'],
+    ['gif', 'GIF Generate'],
     ['moderation', 'Server Moderation'],
-    ['auto', 'Auto Reply']
+    ['auto', 'Auto Reply'],
+    ['info', 'Informations'],
     ['others', 'Other Commands']
   ])
   .registerDefaultGroups()
   .registerDefaultCommands({
     eval: false,
-    prefix: false,
     commandState: false
   })
   .registerCommandsIn(path.join(__dirname, 'commands'));

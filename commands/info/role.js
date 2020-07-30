@@ -8,7 +8,7 @@ module.exports = class RoleCommand extends Command {
 		super(client, {
 			name: 'role',
 			aliases: ['role-info'],
-			group: 'others',
+			group: 'info',
 			memberName: 'role',
 			description: 'Responds with detailed information on a role.',
 			guildOnly: true,

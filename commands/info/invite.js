@@ -7,7 +7,7 @@ module.exports = class InviteCommand extends Command {
       name: 'invite',
       aliases: ['link', 'inv'],
       memberName: 'invite',
-      group: 'others',
+      group: 'info',
       description: "Sends the BOT invitation link."
     });
   }

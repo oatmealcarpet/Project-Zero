@@ -5,7 +5,7 @@ module.exports = class GintamaCommand extends Command {
   constructor(client) {
     super(client, {
       name: 'gintama',
-      group: 'others',
+      group: 'gif',
       memberName: 'gintama',
       description: 'Replies with a gintama gif!',
       throttling: {

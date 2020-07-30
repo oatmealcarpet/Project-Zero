@@ -5,7 +5,7 @@ module.exports = class memberCountCommand extends Command {
         super(client, {
             name:"memcount",
             aliases: ["member", "members"],
-            group: 'others',
+            group: 'info',
             memberName: 'membercount',
             description: 'Counts the total server members.',
 		});
