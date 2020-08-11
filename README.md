@@ -6,7 +6,6 @@
 [![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://bit.ly/2NtdTWy)
 [![Language](https://img.shields.io/badge/Language-Node.js-red?style=for-the-badge&logo=node.js)](https://nodejs.org/en/about/)
 [![Discord](https://img.shields.io/discord/691741711814098994?color=7289da&label=discord&logo=discord&logoColor=white&style=for-the-badge)](https://discord.gg/ZsSx8XB)
-[![Repo Size](https://img.shields.io/github/languages/code-size/Zeroo000/Project-Zero?style=for-the-badge&label=SIZE&logo=github)](/../../)
 [![Discord Bots](https://top.gg/api/widget/524873335864033290.svg)](https://top.gg/bot/524873335864033290)
 
 - Self-Hosting questions for this bot will not be assisted by the bot developer.
