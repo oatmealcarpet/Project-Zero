@@ -28,7 +28,7 @@ module.exports = class QueueCommand extends Command {
       .setColor('#ff7373')
       .setTitle('Music Queue');
     for (let i = 0; i < titleArray.length; i++) {
-      queueEmbed.addField(`${i + 1}:`, `${titleArray[i]}`);
+      queueEmbed.addField(`Queue No. ${i + 1}:`, `${titleArray[i]}`);
     }
     return message.say(queueEmbed);
   }
