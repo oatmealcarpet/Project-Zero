@@ -57,7 +57,7 @@ client.once('ready', () => {
   
 });
 
-		client.on('guildMemberAdd', member => {
+client.on('guildMemberAdd', member => {
   const channel = member.guild.channels.cache.find(ch => ch.name === 'joins-and-leaves'); 
   if (!channel) return;
   channel.send(`Welcome ${member} | ${member.user.tag}!`);
@@ -67,6 +67,14 @@ client.on('guildMemberRemove', member => {
   const channel = member.guild.channels.cache.find(ch => ch.name === 'joins-and-leaves'); 
   if (!channel) return;
   channel.send(`${member} | ${member.user.tag} has left the server.`);
+});
+
+client.on('message', async message => {
+   let embed = new MessageEmbed()
+    .setColor('#5dc4ff')
+    .setDescription(`Hey there **${message.author.tag}**! \n• Want to know my prefix? \n\`gin\` | \`gin help\` \n\`@Gin-san#5627\` | \`@Gin-san#5627 help\``)
+    if (message.content === `<@!${client.user.id}>` || message.content === `<@${client.user.id}>`)
+    return message.channel.send(embed);
 });
 
 client.login(token);
