@@ -25,6 +25,7 @@ Structures.extend('Guild', function(Guild) {
   return MusicGuild;
 });
 
+//replace owner to your Discord id and invite to server.
 const client = new CommandoClient({
   commandPrefix: prefix,
   owner: '211774244294623243',
@@ -55,18 +56,21 @@ client.once('ready', () => {
   setInterval(() => client.user.setActivity(`Music | ${prefix}help | ${activities[i++ % activities.length]}`, {type: 'LISTENING'}), 10000); //1000 is equals to 1 second
 });
 
+//if a user joined the server
 client.on('guildMemberAdd', member => {
-  const channel = member.guild.channels.cache.find(ch => ch.name === 'joins-and-leaves'); 
+  const channel = member.guild.channels.cache.find(ch => ch.name === 'joins-and-leaves'); //replace "ch.name" to "ch.topic" to find channel topic instead of name
   if (!channel) return;
   channel.send(`Welcome ${member} | ${member.user.tag}!`);
 });
 
+//if a user left the server
 client.on('guildMemberRemove', member => {
-  const channel = member.guild.channels.cache.find(ch => ch.name === 'joins-and-leaves'); 
+  const channel = member.guild.channels.cache.find(ch => ch.name === 'joins-and-leaves'); //replace "ch.name" to "ch.topic" to find channel topic instead of name
   if (!channel) return;
   channel.send(`${member} | ${member.user.tag} has left the server.`);
 });
 
+//if bot is mentioned without additional texts
 client.on('message', async message => {
    let embed = new MessageEmbed()
     .setColor('#5dc4ff')
