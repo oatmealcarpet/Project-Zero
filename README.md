@@ -1,3 +1,4 @@
+## MY MAIN FOCUS AS FOR NOW IS MY MAIN BOT (PRIVATE REPOSITORY)
 ## MUSIC COMMANDS WILL BE MODIFIED SOON
 - Self-Hosting questions for this bot will not be assisted by the bot developer.
 - Code Errors, Bugs may be assisted by the developer but not prioritized.
