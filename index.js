@@ -44,7 +44,10 @@ client.registry
   ])
   .registerDefaultGroups()
   .registerDefaultCommands({
-    eval: false,
+    eval: true,
+    help: true,
+    prefix: true,
+    ping: true,
     unknowmCommand: false,
     commandState: false
   })
