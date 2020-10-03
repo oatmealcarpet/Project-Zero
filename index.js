@@ -32,6 +32,7 @@ const client = new CommandoClient({
   invite: 'https://discord.gg/ZsSx8XB'
 });
 
+//registering command groups
 client.registry
   .registerDefaultTypes()
   .registerGroups([
@@ -44,6 +45,7 @@ client.registry
   ])
   .registerDefaultGroups()
   .registerDefaultCommands({
+//built-in commands
     eval: true,
     help: true,
     prefix: true,
@@ -55,6 +57,8 @@ client.registry
 
 client.once('ready', () => {
   console.log('Ready!');
+
+//bot presence status
   let activities = [`v${version}`, `${client.guilds.cache.size} servers`, `${client.channels.cache.size} channels`, `${client.registry.commands.size} commands`, `${client.users.cache.size} users` ], i=0;
   setInterval(() => client.user.setActivity(`Music | ${prefix}help | ${activities[i++ % activities.length]}`, {type: 'LISTENING'}), 10000); //1000 is equals to 1 second
 });
