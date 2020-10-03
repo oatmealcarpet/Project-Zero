@@ -41,6 +41,8 @@
      - eval
      - ping
      - prefix
-- You can enable/disable the built-in commands by going into `index.js` at `line: 46`.
+- You can enable/disable the built-in commands by changing the value in `line:46`
+     - true (enable)
+     - false (disable)
 - Enabling the Unknown Command response you have to delete the `unknownCommand: false,` on `index.js` at `line: 47`.
 
