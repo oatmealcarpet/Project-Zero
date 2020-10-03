@@ -17,7 +17,7 @@
     "combined-stream": "^1.0.8",
     "discord.js": "github:discordjs/discord.js",
     "discord.js-commando": "github:discordjs/Commando",
-    "ffmpeg-static": "^2.7.0",
+    "ffmpeg-static": "^4.2.7",
     "iso-639-1": "^2.1.1",
     "node-opus": "^0.3.3",
     "novelcovid": "^3.0.0",
