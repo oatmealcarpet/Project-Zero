@@ -1,5 +1,5 @@
 [![Discord Bots](https://top.gg/api/widget/524873335864033290.svg)](https://top.gg/bot/524873335864033290)
-
+## Leveling System might be added soon! By using the MongoDB Database.
 - The BOT can be invited to your own server.
      - [BOT Invite](https://bit.ly/3naCiAV)
 - Self-Hosting questions for this bot will not be assisted by the bot developer.
