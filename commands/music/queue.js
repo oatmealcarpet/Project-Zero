@@ -20,15 +20,16 @@ module.exports = class QueueCommand extends Command {
       return message.say('There are no songs in queue!');
     const titleArray = [];
     /* eslint-disable */
-    message.guild.musicData.queue.map(obj => {
+    // display only first 10 items in queue
+    message.guild.musicData.queue.slice(0, 10).forEach(obj => {
       titleArray.push(obj.title);
     });
     /* eslint-enable */
     var queueEmbed = new MessageEmbed()
-      .setColor('#ff7373')
-      .setTitle('Music Queue');
+      .setColor('#5dc4ff')
+      .setTitle(`Music Queue - ${message.guild.musicData.queue.length} items`);
     for (let i = 0; i < titleArray.length; i++) {
-      queueEmbed.addField(`Queue No. ${i + 1}:`, `${titleArray[i]}`);
+      queueEmbed.addField(`${i + 1}:`, `${titleArray[i]}`);
     }
     return message.say(queueEmbed);
   }

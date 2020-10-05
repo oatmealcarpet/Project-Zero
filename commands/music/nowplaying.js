@@ -14,10 +14,9 @@ module.exports = class NowPlayingCommand extends Command {
   }
 
   run(message) {
+  try{
     if (
-      (!message.guild.musicData.isPlaying &&
-        !message.guild.musicData.nowPlaying) ||
-      message.guild.triviaData.isTriviaRunning
+      (!message.guild.musicData.isPlaying &&!message.guild.musicData.nowPlaying) || message.guild.triviaData.isTriviaRunning
     ) {
       return message.say('There is no song playing right now!');
     }
@@ -29,13 +28,16 @@ module.exports = class NowPlayingCommand extends Command {
     } else {
       description = NowPlayingCommand.playbackBar(message, video);
     }
-
-    const videoEmbed = new MessageEmbed()
-      .setThumbnail(video.thumbnail)
-      .setColor('#e9f931')
+      const pict = 'https://i.postimg.cc/QtqvTDrq/giphy.gif';
+      const videoEmbed = new MessageEmbed()
+      .setAuthor('Now Playing', pict)
+      .setColor('#5dc4ff')
       .setTitle(video.title)
       .setDescription(description);
-    message.channel.send(videoEmbed);
+      message.channel.send(videoEmbed);
+   } catch (e) {
+      message.say('Are u sure, you already play some song?')
+  }
     return;
   }
   static playbackBar(message, video) {
@@ -68,17 +70,14 @@ module.exports = class NowPlayingCommand extends Command {
       (passedTimeInMS / totalDurationInMS) * 10
     );
     let playBack = '';
-    for (let i = 1; i < 21; i++) {
+    for (let i = 1; i < 20; i++) {
       if (playBackBarLocation == 0) {
-        playBack = ':musical_note:▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬';
-        break;
-      } else if (playBackBarLocation == 10) {
-        playBack = '▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬:musical_note:';
+        playBack = 'ðŸŸ¡â–¬â–¬â–¬â–¬â–¬â–¬â–¬â–¬â–¬â–¬â–¬â–¬â–¬â–¬â–¬';
         break;
       } else if (i == playBackBarLocation * 2) {
-        playBack = playBack + ':musical_note:';
+        playBack = playBack + 'ðŸŸ¡';
       } else {
-        playBack = playBack + '▬';
+        playBack = playBack + 'â–¬';
       }
     }
     playBack = `${passedTimeFormatted}  ${playBack}  ${totalDurationFormatted}`;

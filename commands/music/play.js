@@ -9,7 +9,7 @@ module.exports = class PlayCommand extends Command {
   constructor(client) {
     super(client, {
       name: 'play',
-      aliases: ['play-song', 'add'],
+      aliases: ['p'],
       memberName: 'play',
       group: 'music',
       description: 'Play any song or playlist from youtube',
@@ -17,13 +17,14 @@ module.exports = class PlayCommand extends Command {
       clientPermissions: ['SPEAK', 'CONNECT'],
       throttling: {
         usages: 2,
-        duration: 5
+        duration: 10
       },
       args: [
         {
           key: 'query',
           prompt: 'What song or playlist would you like to listen to?',
           type: 'string',
+          default: message => message.author.id,
           validate: function(query) {
             return query.length > 0 && query.length < 200;
           }
@@ -33,13 +34,23 @@ module.exports = class PlayCommand extends Command {
   }
 
   async run(message, { query }) {
+    // if (message.author.id !== '271576733168173057') return message.say('play commands being ratelimit, Im sorry :(');
     const voiceChannel = message.member.voice.channel;
     if (!voiceChannel) return message.say('Join a channel and try again');
-
+    if (!voiceChannel.permissionsFor(this.client.user).has(['CONNECT', 'SPEAK', 'VIEW_CHANNEL'])) {
+      return message.reply('I\'m missing the "Connect", "Speak", or "View Channel" permission for this channel.');
+    }
+    if(message.guild.musicData.isPlaying === true && voiceChannel.id !== message.guild.musicData.nowPlaying.voiceChannel.id) {
+      return message.channel.send({embed : {
+          description: `Error accepting your request, because you are not in **${message.guild.musicData.nowPlaying.voiceChannel.name}** `,
+          color: 'RED'
+      }});
+    }
     if (message.guild.triviaData.isTriviaRunning == true) {
       return message.say('Please try after the trivia has ended');
     }
-
+	
+		
     if (
       // if the user entered a youtube playlist url
       query.match(
@@ -61,7 +72,11 @@ module.exports = class PlayCommand extends Command {
         // if (message.guild.musicData.queue.length < 10) {
         //
         message.guild.musicData.queue.push(
-          PlayCommand.constructSongObj(video, voiceChannel, message.member.user)
+          PlayCommand.constructSongObj(
+          video, 
+          voiceChannel,
+          message.member.user
+          )
         );
         // } else {
         //   return message.say(
@@ -90,22 +105,12 @@ module.exports = class PlayCommand extends Command {
           'There was a problem getting the video you provided!'
         );
       });
-      // // can be uncommented if you don't want the bot to play live streams
-      // if (video.raw.snippet.liveBroadcastContent === 'live') {
-      //   return message.say("I don't support live streams!");
-      // }
-      // // can be uncommented if you don't want the bot to play videos longer than 1 hour
-      // if (video.duration.hours !== 0) {
-      //   return message.say('I cannot play videos longer than 1 hour');
-      // }
-      // // can be uncommented if you want to limit the queue
-      // if (message.guild.musicData.queue.length > 10) {
-      //   return message.say(
-      //     'There are too many songs in the queue already, skip or wait a bit'
-      //   );
-      // }
       message.guild.musicData.queue.push(
-        PlayCommand.constructSongObj(video, voiceChannel, message.member.user)
+        PlayCommand.constructSongObj(
+        video, 
+        voiceChannel,
+        message.member.user
+        )
       );
       if (
         message.guild.musicData.isPlaying == false ||
@@ -114,74 +119,36 @@ module.exports = class PlayCommand extends Command {
         message.guild.musicData.isPlaying = true;
         return PlayCommand.playSong(message.guild.musicData.queue, message);
       } else if (message.guild.musicData.isPlaying == true) {
-        return message.say(`${video.title} added to queue`);
+        let qqe = new MessageEmbed()
+          .setTitle('✅ Added to queue')
+          .setColor('#5dc4ff')
+          .setDescription(`${video.title} added to queue`)   
+        return message.say(qqe);
       }
     }
 
     // if user provided a song/video name
     const videos = await youtube.searchVideos(query, 5).catch(function() {
       return message.say(
-        'There was a problem searching the video you requested :('
+        'There was a problem searching the video you requested.'
       );
     });
     if (videos.length < 5) {
       return message.say(
-        `I had some trouble finding what you were looking for, please try again or be more specific`
+        `I had some trouble finding what you were looking for, please try again or be more specific.`
       );
     }
-    const vidNameArr = [];
-    for (let i = 0; i < videos.length; i++) {
-      vidNameArr.push(`${i + 1}: ${videos[i].title}`);
-    }
-    vidNameArr.push('exit');
-    const embed = new MessageEmbed()
-      .setColor('#e9f931')
-      .setTitle('Choose a song by commenting a number between 1 and 5')
-      .addField('Song 1', vidNameArr[0])
-      .addField('Song 2', vidNameArr[1])
-      .addField('Song 3', vidNameArr[2])
-      .addField('Song 4', vidNameArr[3])
-      .addField('Song 5', vidNameArr[4])
-      .addField('Exit', 'exit');
-    var songEmbed = await message.channel.send({ embed });
-    message.channel
-      .awaitMessages(
-        function(msg) {
-          return (msg.content > 0 && msg.content < 6) || msg.content === 'exit';
-        },
-        {
-          max: 1,
-          time: 60000,
-          errors: ['time']
-        }
-      )
-      .then(function(response) {
-        const videoIndex = parseInt(response.first().content);
-        if (response.first().content === 'exit') return songEmbed.delete();
+    var songEmbed = await message.react("✅").then(function(response) {
+        const videoIndex = parseInt(1);
         youtube
           .getVideoByID(videos[videoIndex - 1].id)
           .then(function(video) {
-            // // can be uncommented if you don't want the bot to play live streams
-            // if (video.raw.snippet.liveBroadcastContent === 'live') {
-            //   songEmbed.delete();
-            //   return message.say("I don't support live streams!");
-            // }
-
-            // // can be uncommented if you don't want the bot to play videos longer than 1 hour
-            // if (video.duration.hours !== 0) {
-            //   songEmbed.delete();
-            //   return message.say('I cannot play videos longer than 1 hour');
-            // }
-
-            // // can be uncommented if you don't want to limit the queue
-            // if (message.guild.musicData.queue.length > 10) {
-            //   songEmbed.delete();
-            //   return message.say(
-            //     'There are too many songs in the queue already, skip or wait a bit'
-            //   );
-            // }
             message.guild.musicData.queue.push(
-              PlayCommand.constructSongObj(video, voiceChannel, message.member.user)
+              PlayCommand.constructSongObj(
+              video, 
+              voiceChannel,
+              message.member.user
+              )
             );
             if (message.guild.musicData.isPlaying == false) {
               message.guild.musicData.isPlaying = true;
@@ -193,7 +160,11 @@ module.exports = class PlayCommand extends Command {
               if (songEmbed) {
                 songEmbed.delete();
               }
-              return message.say(`${video.title} added to queue`);
+              let qqew = new MessageEmbed()
+              .setTitle('✅ Added to queue')
+              .setColor('#5dc4ff')
+              .setDescription(`${video.title} added to queue`)   
+            message.say(qqew);
             }
           })
           .catch(function() {
@@ -201,21 +172,14 @@ module.exports = class PlayCommand extends Command {
               songEmbed.delete();
             }
             return message.say(
-              'An error has occured when trying to get the video ID from youtube'
+              'An error has occured when trying to get the video ID from YouTube'
             );
           });
       })
-      .catch(function() {
-        if (songEmbed) {
-          songEmbed.delete();
-        }
-        return message.say(
-          'Please try again and enter a number between 1 and 5 or exit'
-        );
-      });
+      
   }
   static playSong(queue, message) {
-    const classThis = this; // use classThis instead of 'this' because of lexical scope below
+    const classThis = this;
     queue[0].voiceChannel
       .join()
       .then(function(connection) {
@@ -229,25 +193,80 @@ module.exports = class PlayCommand extends Command {
           .on('start', function() {
             message.guild.musicData.songDispatcher = dispatcher;
             dispatcher.setVolume(message.guild.musicData.volume);
+            
             const videoEmbed = new MessageEmbed()
+              .setAuthor(' Playing...', 'https://i.postimg.cc/hjMVmyZm/giphy-1.gif')
+              .setTitle('')
               .setThumbnail(queue[0].thumbnail)
-              .setColor('#e9f931')
-              .addField('Now Playing:', queue[0].title)
-              .addField('Duration:', queue[0].duration)
-              .addField('Requested by:', queue[0].memberDisplayName;
-            if (queue[1]) videoEmbed.addField('Next Song:', queue[1].title);
-            message.say(videoEmbed);
+              .setColor('#5dc4ff')
+              .setDescription(`**[${queue[0].title}](${queue[0].url})** \nDuration: **[${queue[0].duration}]** \nRequested by: **${queue[0].memberDisplayName}**`)
+              .setFooter(`©Gin-san Music Feature`)
+              if (queue[1]) videoEmbed.addField('Next Song:', `**[${queue[1].title}](${queue[1].url})** \nDuration: **[${queue[1].duration}]**`);
+              message.say(videoEmbed).then(msg => {
+                msg.react("▶").then( r => {
+                msg.react("⏸")
+                msg.react("⏹")
+                msg.react("❌")
+                var backwardsFilter = (reaction, user) => reaction.emoji.name === "▶" && user.id === message.author.id;
+                var fowardsFilter = (reaction, user) => reaction.emoji.name === "⏸" && user.id === message.author.id;
+                var stopFilter = (reaction, user) => reaction.emoji.name === "⏹" && user.id === message.author.id;
+                var nextFilter = (reaction, user) => reaction.emoji.name === "❌" && user.id === message.author.id;
+                var backwards = msg.createReactionCollector(backwardsFilter);
+                var fowards = msg.createReactionCollector(fowardsFilter);
+                var stop = msg.createReactionCollector(stopFilter);
+                var next = msg.createReactionCollector(nextFilter)
+                backwards.on("collect", r => {
+                message.guild.musicData.songDispatcher.resume();
+                msg.reactions.resolve("▶").users.remove(message.author.id)
+                message.channel.send("▶ Resumed").then(async message => {
+                message.delete({ timeout: 2000 });
+              })
+            })
+
+        fowards.on("collect", r => {
+              message.guild.musicData.songDispatcher.pause();
+            msg.reactions.resolve("⏸").users.remove(message.author.id)
+            message.channel.send("⏸ Song Paused").then(async message => {
+            message.delete({ timeout: 2000 });
+            })
+        })
+        stop.on("collect", r => {
+        	message.guild.musicData.songDispatcher.resume()
+            message.guild.musicData.songDispatcher.end();
+            msg.reactions.resolve("⏹").users.remove(message.author.id)
+            message.channel.send("⏹ Song Stopped.").then(async message => {
+            message.delete({ timeout: 2000 });
+            })
+        })
+        next.on("collect", r => {
+        	message.guild.musicData.songDispatcher.resume()
+          message.guild.musicData.songDispatcher.end();
+          message.guild.musicData.queue.length = 0;
+          msg.reactions.resolve("❌").users.remove(message.author.id)
+          message.channel.send("❌ Stopping all song.").then(async message => {
+          message.delete({ timeout: 2000 });
+          })
+      })
+        })
+
+        })
             message.guild.musicData.nowPlaying = queue[0];
             return queue.shift();
+        
           })
           .on('finish', function() {
             if (queue.length >= 1) {
               return classThis.playSong(queue, message);
             } else {
+              let embods = new MessageEmbed()
+              .setDescription('The song/music has ended.')
+              .setColor('#5dc4ff')
+             message.say(embods);
               message.guild.musicData.isPlaying = false;
               message.guild.musicData.nowPlaying = null;
               message.guild.musicData.songDispatcher = null;
               return message.guild.me.voice.channel.leave();
+        
             }
           })
           .on('error', function(e) {
@@ -267,7 +286,7 @@ module.exports = class PlayCommand extends Command {
   }
   static constructSongObj(video, voiceChannel, user) {
     let duration = this.formatDuration(video.duration);
-    if (duration == '00:00') duration = 'Live Stream';
+    if (duration == '00:00') duration = ' Live Stream';
     return {
       url: `https://www.youtube.com/watch?v=${video.raw.id}`,
       title: video.title,

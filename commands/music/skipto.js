@@ -21,6 +21,7 @@ module.exports = class SkipToCommand extends Command {
   }
 
   run(message, { songNumber }) {
+//       if (!message.member.permissions.has("MANAGE_CHANNELS") && message.guild.me.permissions.has("MANAGE_CHANNELS")) return message.channel.send("Only author can skip :)");
     if (songNumber < 1 && songNumber >= message.guild.musicData.queue.length) {
       return message.reply('Please enter a valid song number');
     }
@@ -36,9 +37,22 @@ module.exports = class SkipToCommand extends Command {
 
     if (message.guild.musicData.queue < 1)
       return message.say('There are no songs in queue');
-
+              if(!message.guild.voice.connection)
+  {
+    return;
+  }
+  let userVoiceChannel = message.member.voice.channel;
+  if (!userVoiceChannel) {
+    return;
+  }
+  let clientVoiceConnection = message.guild.voice.connection;
+  if (userVoiceChannel === clientVoiceConnection.channel) {
     message.guild.musicData.queue.splice(0, songNumber - 1);
     message.guild.musicData.songDispatcher.end();
     return;
+  } else {
+    message.channel.send('You can only execute this command if you share the same voiceChannel!');
+  }
+
   }
 };

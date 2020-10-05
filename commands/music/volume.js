@@ -4,7 +4,7 @@ module.exports = class VolumeCommand extends Command {
   constructor(client) {
     super(client, {
       name: 'volume',
-      aliases: ['change-volume'],
+      aliases: ['change-volume', 'vol'],
       group: 'music',
       memberName: 'volume',
       guildOnly: true,
@@ -18,14 +18,11 @@ module.exports = class VolumeCommand extends Command {
           key: 'wantedVolume',
           prompt: 'What volume would you like to set? from 1 to 200',
           type: 'integer',
-          validate: function(wantedVolume) {
-            return wantedVolume >= 1 && wantedVolume <= 200;
-          }
+          validate: wantedVolume => wantedVolume >= 1 && wantedVolume <= 200
         }
       ]
     });
   }
-
   run(message, { wantedVolume }) {
     const voiceChannel = message.member.voice.channel;
     if (!voiceChannel) return message.reply('Join a channel and try again');
@@ -36,9 +33,23 @@ module.exports = class VolumeCommand extends Command {
     ) {
       return message.reply('There is no song playing right now!');
     }
+    if(!message.guild.voice.connection)
+    {
+    return;
+    }
+    let userVoiceChannel = message.member.voice.channel;
+    if (!userVoiceChannel) {
+    return;
+    }
+    let clientVoiceConnection = message.guild.voice.connection;
+    if (userVoiceChannel === clientVoiceConnection.channel) {
     const volume = wantedVolume / 100;
     message.guild.musicData.volume = volume;
     message.guild.musicData.songDispatcher.setVolume(volume);
     message.say(`Current volume is: ${wantedVolume}%`);
+    } else {
+    message.channel.send('You can only execute this command if you share the same voiceChannel!');
+    }
+
   }
 };

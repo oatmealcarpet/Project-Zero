@@ -1,4 +1,5 @@
 const { Command } = require('discord.js-commando');
+const { MessageEmbed } = require('discord.js');
 
 module.exports = class ResumeCommand extends Command {
   constructor(client) {
@@ -22,9 +23,26 @@ module.exports = class ResumeCommand extends Command {
     ) {
       return message.reply('There is no song playing right now!');
     }
-
-    message.say('Song resumed :play_pause:');
-
+    
+      if(!message.guild.voice.connection)
+  {
+    return;
+  }
+  let userVoiceChannel = message.member.voice.channel;
+  if (!userVoiceChannel) {
+    return;
+  }
+  let clientVoiceConnection = message.guild.voice.connection;
+  if (userVoiceChannel === clientVoiceConnection.channel) {
+    let embed = new MessageEmbed()
+    .setColor('#5dc4ff')
+    .setTitle(':play_pause: Resumed')
+    .setDescription('✔ | Succsessfully resumed song')
+    message.say(embed);
     message.guild.musicData.songDispatcher.resume();
+  } else {
+    message.channel.send('You can only execute this command if you share the same voiceChannel!');
+  }
+
   }
 };

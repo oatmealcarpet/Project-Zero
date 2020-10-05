@@ -14,7 +14,6 @@ module.exports = class ShuffleQueueCommand extends Command {
   run(message) {
     var voiceChannel = message.member.voice.channel;
     if (!voiceChannel) return message.reply('Join a channel and try again');
-
     if (
       typeof message.guild.musicData.songDispatcher == 'undefined' ||
       message.guild.musicData.songDispatcher == null
@@ -32,7 +31,7 @@ module.exports = class ShuffleQueueCommand extends Command {
       titleArray.push(obj.title);
     });
     var queueEmbed = new MessageEmbed()
-      .setColor('#ff7373')
+      .setColor('#5dc4ff')
       .setTitle('New Music Queue');
     for (let i = 0; i < titleArray.length; i++) {
       queueEmbed.addField(`${i + 1}:`, `${titleArray[i]}`);
