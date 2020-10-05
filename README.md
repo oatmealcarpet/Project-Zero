@@ -1,3 +1,5 @@
+[![Discord Bots](https://top.gg/api/widget/524873335864033290.svg)](https://top.gg/bot/524873335864033290)
+
 ## MY MAIN FOCUS AS FOR NOW IS MY MAIN BOT (PRIVATE REPOSITORY)
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FZeroo000%2FProject-Zero.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FZeroo000%2FProject-Zero?ref=badge_shield)
 
