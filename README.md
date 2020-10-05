@@ -1,4 +1,6 @@
 ## MY MAIN FOCUS AS FOR NOW IS MY MAIN BOT (PRIVATE REPOSITORY)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FZeroo000%2FProject-Zero.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FZeroo000%2FProject-Zero?ref=badge_shield)
+
 - The BOT can be invited to your own server.
      - [BOT Invite](https://bit.ly/3naCiAV)
 - Self-Hosting questions for this bot will not be assisted by the bot developer.
@@ -44,3 +46,7 @@
      - false (disable)
 - Enabling the Unknown Command response you have to delete the `unknownCommand: false,` on `index.js` at `line: 47`.
 
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FZeroo000%2FProject-Zero.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FZeroo000%2FProject-Zero?ref=badge_large)
