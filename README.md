@@ -1,8 +1,6 @@
 ## MY MAIN FOCUS AS FOR NOW IS MY MAIN BOT (PRIVATE REPOSITORY)
 - The BOT can be invited to your own server.
      - [BOT Invite](https://bit.ly/3naCiAV)
-
-## MUSIC COMMANDS WILL BE MODIFIED SOON
 - Self-Hosting questions for this bot will not be assisted by the bot developer.
 - Code Errors, Bugs may be assisted by the developer but not prioritized.
 - This bot repository will be updated whenever the developer feels like updating it.
