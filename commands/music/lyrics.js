@@ -20,7 +20,6 @@ module.exports = class LyricsCommand extends Command {
       args: [
         {
           key: 'songName',
-          default: '',
           type: 'string',
           prompt: 'What song lyrics would you like to searching?'
         }
