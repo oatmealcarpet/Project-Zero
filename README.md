@@ -47,6 +47,3 @@
      - true (enable)
      - false (disable)
 - Enabling the Unknown Command response you have to delete the `unknownCommand: false,` on `index.js` at `line: 47`.
-
-## License
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FZeroo000%2FProject-Zero.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FZeroo000%2FProject-Zero?ref=badge_large)
