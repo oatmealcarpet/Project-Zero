@@ -1,6 +1,5 @@
 ![Developer Discord Status](https://discord.c99.nl/widget/theme-2/211774244294623243.png)
 [![Discord Bots](https://top.gg/api/widget/524873335864033290.svg)](https://top.gg/bot/524873335864033290)
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FZeroo000%2FProject-Zero.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FZeroo000%2FProject-Zero?ref=badge_shield)
 
 ## Leveling System might be added soon! By using the MongoDB Database.
 - The BOT can be invited to your own server.
