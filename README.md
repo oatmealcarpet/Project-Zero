@@ -12,7 +12,7 @@
 
 ## Invite Links
 - [Discord Server](https://discord.gg/ZsSx8XB)
-- [BOT Invite](https://discord.com/oauth2/authorize?client_id=524873335864033290&scope=bot&permissions=805314614)
+- [BOT Invite](https://discord.com/oauth2/authorize?client_id=524873335864033290&scope=bot&permissions=1610087543)
 
 ## Installation
 - ```git clone https://github.com/Zeroo000/Project-Zero```
