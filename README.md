@@ -1,4 +1,4 @@
-![Developer Discord Status](https://discord.c99.nl/widget/theme-2/211774244294623243.png)
+[![Developer Discord Status](https://discord.c99.nl/widget/theme-2/211774244294623243.png)](https://discord.gg/ZsSx8XB)
 [![Discord Bots](https://top.gg/api/widget/524873335864033290.svg)](https://top.gg/bot/524873335864033290)
 
 ## Leveling System might be added soon! By using the MongoDB Database.
