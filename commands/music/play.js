@@ -88,9 +88,19 @@ module.exports = class PlayCommand extends Command {
         message.guild.musicData.isPlaying = true;
         return PlayCommand.playSong(message.guild.musicData.queue, message);
       } else if (message.guild.musicData.isPlaying == true) {
-        return message.say(
-          `Playlist - :musical_note:  ${playlist.title} :musical_note: has been added to queue`
-        );
+      	
+        const PlayListEmbed = new MessageEmbed()
+          .setColor('#5dc4ff')
+          .setTitle(`${playlist.title}`)
+          .addField(
+            `Playlist has been added ${message.guild.musicData.queue.length} songs to queue!`,
+            playlist.url
+          )
+          .setThumbnail(playlist.thumbnails.high.url)
+          .setURL(playlist.url);
+        message.say(PlayListEmbed);
+        // @TODO add the the position number of queue of the when a playlist is added
+        return;
       }
     }
 
@@ -120,10 +130,16 @@ module.exports = class PlayCommand extends Command {
         return PlayCommand.playSong(message.guild.musicData.queue, message);
       } else if (message.guild.musicData.isPlaying == true) {
         let qqe = new MessageEmbed()
-          .setTitle('✅ Added to queue')
           .setColor('#5dc4ff')
-          .setDescription(`${video.title} added to queue`)   
-        return message.say(qqe);
+          .setTitle(`:musical_note: ${video.title}`)
+          .addField(
+            `Has been added to queue. `,
+            `This song is #${message.guild.musicData.queue.length} in queue`
+          )
+          .setThumbnail(video.thumbnails.high.url)
+          .setURL(video.url);
+        message.say(addedEmbed);
+        return;
       }
     }
 
@@ -138,7 +154,7 @@ module.exports = class PlayCommand extends Command {
         `I had some trouble finding what you were looking for, please try again or be more specific.`
       );
     }
-    var songEmbed = await message.react("✅").then(function(response) {
+    var songEmbed = await message.react("✅").then(function() {
         const videoIndex = parseInt(1);
         youtube
           .getVideoByID(videos[videoIndex - 1].id)
@@ -161,10 +177,16 @@ module.exports = class PlayCommand extends Command {
                 songEmbed.delete();
               }
               let qqew = new MessageEmbed()
-              .setTitle('✅ Added to queue')
               .setColor('#5dc4ff')
-              .setDescription(`${video.title} added to queue`)   
-            message.say(qqew);
+                .setTitle(`:musical_note: ${video.title}`)
+                .addField(
+                  `Has been added to queue. `,
+                  `This song is #${message.guild.musicData.queue.length} in queue`
+                )
+                .setThumbnail(video.thumbnails.high.url)
+                .setURL(video.url);
+              message.say(qqew);
+              return;
             }
           })
           .catch(function() {
@@ -215,7 +237,7 @@ module.exports = class PlayCommand extends Command {
                 var fowards = msg.createReactionCollector(fowardsFilter);
                 var stop = msg.createReactionCollector(stopFilter);
                 var next = msg.createReactionCollector(nextFilter)
-                backwards.on("collect", r => {
+                backwards.on("collect", () => {
                 message.guild.musicData.songDispatcher.resume();
                 msg.reactions.resolve("▶").users.remove(message.author.id)
                 message.channel.send("▶ Resumed").then(async message => {
@@ -223,14 +245,14 @@ module.exports = class PlayCommand extends Command {
               })
             })
 
-        fowards.on("collect", r => {
+        fowards.on("collect", () => {
               message.guild.musicData.songDispatcher.pause();
             msg.reactions.resolve("⏸").users.remove(message.author.id)
             message.channel.send("⏸ Song Paused").then(async message => {
             message.delete({ timeout: 2000 });
             })
         })
-        stop.on("collect", r => {
+        stop.on("collect", () => {
         	message.guild.musicData.songDispatcher.resume()
             message.guild.musicData.songDispatcher.end();
             msg.reactions.resolve("⏹").users.remove(message.author.id)
@@ -238,7 +260,7 @@ module.exports = class PlayCommand extends Command {
             message.delete({ timeout: 2000 });
             })
         })
-        next.on("collect", r => {
+        next.on("collect", () => {
         	message.guild.musicData.songDispatcher.resume()
           message.guild.musicData.songDispatcher.end();
           message.guild.musicData.queue.length = 0;
