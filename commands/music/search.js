@@ -3,7 +3,7 @@ const { MessageEmbed } = require('discord.js');
 const Youtube = require('simple-youtube-api');
 const { youtubeAPI } = require('../../config.json');
 const youtube = new Youtube(youtubeAPI);
-const PlayCommand = require('./play.js')
+const PlayCommand = require('./play.js');
 
 module.exports = class SpCommand extends Command {
   constructor(client) {
@@ -41,7 +41,7 @@ module.exports = class SpCommand extends Command {
     }
     if(message.guild.musicData.isPlaying === true && voiceChannel.id !== message.guild.musicData.nowPlaying.voiceChannel.id){
         return message.channel.send({embed : {
-            description: `Error accept you request, because you not in **${message.guild.musicData.nowPlaying.voiceChannel.name}** `,
+            description: `Error accept you request, because you are not in **${message.guild.musicData.nowPlaying.voiceChannel.name}** `,
             color: 'RED'
         }});
     }
@@ -58,21 +58,21 @@ module.exports = class SpCommand extends Command {
     }
     const vidNameArr = [];
     for (let i = 0; i < videos.length; i++) {
-      vidNameArr.push(`${i + 1}: ${videos[i].title}`);
+      vidNameArr.push(`${i + 1}: [${videos[i].title}](${videos[i].shortURL})`);
     }
     vidNameArr.push('exit');
-    const picta = 'https://i.pinimg.com/originals/07/1a/6d/071a6db29f2b971a48f5ca483632e5b4.gif';
     const embed = new MessageEmbed()
       .setColor('#5dc4ff')
-      .setAuthor('Choose a song by commenting a number between 1 and 5', picta)
-      .setFooter(`Requested by : ${message.author.tag}`)
-      .setTimestamp()
-      .addField('Song 1', vidNameArr[0])
-      .addField('Song 2', vidNameArr[1])
-      .addField('Song 3', vidNameArr[2])
-      .addField('Song 4', vidNameArr[3])
-      .addField('Song 5', vidNameArr[4])
-      .addField('Exit', 'exit');
+      .setTitle(`:mag: Search Results!`)
+      .addField(':notes: Result 1', vidNameArr[0])
+      .setURL(videos[0].url)
+      .addField(':notes: Result 2', vidNameArr[1])
+      .addField(':notes: Result 3', vidNameArr[2])
+      .addField(':notes: Result 4', vidNameArr[3])
+      .addField(':notes: Result 5', vidNameArr[4])
+      .setThumbnail(videos[0].thumbnails.high.url)
+      .setFooter('Choose a song by commenting a number between 1 and 5')
+      .addField(':x: Exit', 'exit ');
     var songEmbed = await message.channel.send({ embed });
     message.channel
       .awaitMessages(
@@ -109,9 +109,11 @@ module.exports = class SpCommand extends Command {
                 songEmbed.delete();
               }
               let qqew = new MessageEmbed()
-              .setTitle('✅ | Success')
-              .setColor('#5dc4ff')
-              .setDescription(`${video.title} added to queue`)   
+              .setTitle(`:musical_note: ${video.title}`)
+          .addField(
+            `Has been added to queue. `,
+            `This song is #${message.guild.musicData.queue.length} in queue`
+          );   
             message.say(qqew);
             }
           })
