@@ -109,8 +109,9 @@ module.exports = class SpCommand extends Command {
                 songEmbed.delete();
               }
               let qqew = new MessageEmbed()
+              .setColor(0x5dc4ff)
               .setTitle(`:musical_note: ${video.title}`)
-          .addField(
+              .addField(
             `Has been added to queue. `,
             `This song is #${message.guild.musicData.queue.length} in queue`
           );   
