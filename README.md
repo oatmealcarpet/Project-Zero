@@ -34,7 +34,7 @@
 
 ### Commands
 
-- BOT Prefix: `p`                                                                                                           | uptime                 |
+- BOT Prefix: `p`                                                                                   
 
 ## Note
 - Note that the discord.js-commando framework already has a built-in commands and it is the following:
