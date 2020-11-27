@@ -3,7 +3,7 @@
 
 ## Leveling System might be added soon! By using the MongoDB Database.
 - The BOT can be invited to your own server.
-     - [BOT Invite](https://bit.ly/3naCiAV)
+     - [BOT Invite](https://discord.com/oauth2/authorize?client_id=524873335864033290&permissions=1278602311&redirect_uri=https://discord.com/oauth2/authorize%3Fclient_id%3D524873335864033290%26permissions%3D8%26redirect_uri%3Dhttps%253A%252F%252Fdiscord.com%252Fapi%252Foauth2%252Fauthorize%253Fclient_id%253D5248733358&scope=bot)
 - Self-Hosting questions for this bot will not be assisted by the bot developer.
 - Code Errors, Bugs may be assisted by the developer but not prioritized.
 - This bot repository will be updated whenever the developer feels like updating it.
@@ -12,7 +12,7 @@
 
 ## Invite Links
 - [Discord Server](https://discord.gg/ZsSx8XB)
-- [BOT Invite](https://discord.com/oauth2/authorize?client_id=524873335864033290&scope=bot&permissions=1610087543)
+- [BOT Invite](https://discord.com/oauth2/authorize?client_id=524873335864033290&permissions=1278602311&redirect_uri=https://discord.com/oauth2/authorize%3Fclient_id%3D524873335864033290%26permissions%3D8%26redirect_uri%3Dhttps%253A%252F%252Fdiscord.com%252Fapi%252Foauth2%252Fauthorize%253Fclient_id%253D5248733358&scope=bot)
 
 ## Installation
 - ```git clone https://github.com/Zeroo000/Project-Zero```
