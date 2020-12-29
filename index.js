@@ -12,6 +12,9 @@ Structures.extend('Guild', function(Guild) {
         isPlaying: false,
         nowPlaying: null,
         songDispatcher: null,
+        skipTimer: false,
+        loopSong: false,
+        loopQueue: false,
         volume: 1
       };
       this.triviaData = {
