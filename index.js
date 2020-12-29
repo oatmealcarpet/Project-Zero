@@ -80,6 +80,27 @@ client.on('guildMemberRemove', member => {
   channel.send(`${member} | ${member.user.tag} has left the server.`);
 });
 
+client.on('voiceStateUpdate', async (___, newState) => {
+  if (
+    newState.member.user.bot &&
+    !newState.channelID &&
+    newState.guild.musicData.songDispatcher &&
+    newState.member.user.id == client.user.id
+  ) {
+    newState.guild.musicData.queue.length = 0;
+    newState.guild.musicData.songDispatcher.end();
+    return;
+  }
+  if (
+    newState.member.user.bot &&
+    newState.channelID &&
+    newState.member.user.id == client.user.id &&
+    !newState.selfDeaf
+  ) {
+    newState.setSelfDeaf(true);
+  }
+});
+
 //if bot is mentioned without additional texts
 client.on('message', async message => {
    let embed = new MessageEmbed()
