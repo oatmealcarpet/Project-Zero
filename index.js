@@ -110,4 +110,4 @@ client.on('message', async message => {
     return message.channel.send(embed);
 });
 
-client.login(lx4ntnerjsJBOsnca4yDe-K0NrDVd5FJ);
+client.login(token);
