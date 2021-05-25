@@ -1,8 +1,8 @@
 {
-   "token": "BOT_TOKEN",
-   "prefix": "p",
-   "newsAPI": "NEWSAPI.ORG",
-   "tenorAPI": "TENOR_API",
-   "youtubeAPI": "YOUTUBE_API", 
-   "geniusLyricsAPI": "GENIUS_API"
+   "token": "lx4ntnerjsJBOsnca4yDe-K0NrDVd5FJ",
+   "prefix": ".",
+   "newsAPI": "1afbe21f84b04101b35418469bb84d07",
+   "tenorAPI": "WIJF1IJWT705",
+   "youtubeAPI": "AIzaSyBdXsWoQO00f7fPOLu2XuLwzGJjw6q_EFQ", 
+   "geniusLyricsAPI": "T3JOh8jbrFnNdIyF2U0J5x12Gr4VEpukLy-ruDmaba6G5c4XWC_HFodX3Fv75qb3D2HDEYOTIJeMIMA_JrM4eQ"
 }
